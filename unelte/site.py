@@ -1,6 +1,6 @@
 """Face index.html (pagina pentru GitHub Pages) din relieful-romaniei.html, care e scris fără <head>
 (pentru Artifact). Rulare: python unelte/site.py"""
-import os
+import hashlib, os, re
 root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 body = open(os.path.join(root, "relieful-romaniei.html"), encoding="utf-8").read()
 head = ('<!doctype html>\n<html lang="ro">\n<head>\n<meta charset="utf-8">\n'
@@ -9,5 +9,11 @@ head = ('<!doctype html>\n<html lang="ro">\n<head>\n<meta charset="utf-8">\n'
         '<meta name="theme-color" content="#2f6b4f">\n'
         '<style>html{color-scheme:light dark}body{margin:0}img{max-width:100%}[hidden]{display:none!important}'
         ':root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>\n')
+# fiecare script primește ?v=<amprenta fișierului>, ca telefoanele să nu folosească o versiune veche din cache
+def versiune(m):
+    f = m.group(1)
+    h = hashlib.md5(open(os.path.join(root, f), "rb").read()).hexdigest()[:8]
+    return f'<script src="{f}?v={h}"></script>'
+body = re.sub(r'<script src="([\w.-]+\.js)"></script>', versiune, body)
 open(os.path.join(root, "index.html"), "w", encoding="utf-8").write(head + body + "\n</html>\n")
 print("index.html scris")
