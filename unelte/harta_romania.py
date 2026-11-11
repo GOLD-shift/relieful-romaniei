@@ -134,6 +134,11 @@ for _ in range(8):
     down = is_m & (elev < np.where(west, 380, 560)) & (dn <= 10) & (near_n > 0)
     lab[up] = near_m[up]; lab[down] = near_n[down]
 
+# zone atribuite explicit (depresiuni intramontane care țin de o grupă de munți)
+for f in cfg.get("forta", []):
+    fm = (raster([f["poly"]], 2) >= 0.5) & mask & ~np.isin(lab, [idx[i] for i in MOUNT])
+    lab[fm] = idx[f["id"]]
+
 # 2) contactul câmpie – deal/podiș după altitudine
 def swap(lowland, upland, lo, hi, reach=14):
     global lab
@@ -191,11 +196,6 @@ for cut in cfg["rauri_taieturi"]:
     lab[free & (g > 0)] = g[free & (g > 0)]
     lab = spread(lab, mask)
 
-# Dealurile și depresiunile peri-transilvane: marginea Depresiunii Transilvaniei, lângă munți
-DTI = [i for i in ids if i.startswith("dt-") and i != "dt-per"]
-band = np.isin(lab, [idx[i] for i in DTI]) & (dist_to(lab, MOUNT, 9) <= 8)
-lab[band] = idx["dt-per"]
-
 # fiecare subunitate păstrează doar bucata ei principală; restul trec la vecini
 for k in range(1, len(ids) + 1):
     comp, nc = components(lab == k)
@@ -204,6 +204,40 @@ for k in range(1, len(ids) + 1):
         keep = int(np.argmax(sizes)) + 1
         lab[(comp > 0) & (comp != keep)] = 0
 lab = spread(lab, mask)
+
+# zonele închise de o singură subunitate (ex. Depresiunea Brașovului în Carpații de Curbură) intră în ea
+for k in range(1, len(ids) + 1):
+    comp, nc = components(lab == k)
+    for c in range(1, nc + 1):
+        cm = comp == c
+        ring = np.zeros_like(cm)
+        for dy, dx in SH:
+            ring |= np.roll(np.roll(cm, dy, 0), dx, 1)
+        ring &= ~cm
+        around = set(np.unique(lab[ring]).tolist())
+        if 0 not in around and len(around) == 1:
+            lab[cm] = around.pop()
+
+# Lunca Dunării: pixelii joși de lângă Dunăre (și Borcea), cel mult câțiva metri peste nivelul fluviului
+LC = cfg["lunca"]
+dan = lines_raster(river_lines(LC["rauri"]), 2) & mask
+dan[:, :int((LC["lon_min"] - LON0) / RES)] = False
+dan[:, int((LC["lon_max"] - LON0) / RES):] = False
+val = np.where(dan, elev, np.nan); known = dan.copy(); dist = np.where(dan, 0, 999)
+for k in range(1, LC["dist_max_px"] + 1):
+    nv = val.copy()
+    for dy, dx in SH:
+        sv = np.roll(np.roll(val, dy, 0), dx, 1)
+        take = ~known & ~np.isnan(sv) & np.isnan(nv)
+        nv[take] = sv[take]
+    newly = ~known & ~np.isnan(nv)
+    dist[newly] = k; known |= newly; val = nv
+lunca = mask & known & (elev <= val + LC["peste_rau_m"]) & ~np.isin(lab, [idx["dd"]])
+lunca = box(lunca.astype(np.float32), 2) / 25 > 0.5
+comp, nc = components(lunca)
+sizes = np.bincount(comp.ravel())
+lunca = np.isin(comp, [c for c in range(1, nc + 1) if sizes[c] >= 40])
+lab[lunca & mask] = idx["ld"]
 
 # ---------- vectorizare (marching squares) ----------
 def contours(m):

@@ -32,6 +32,8 @@ window.GEO = {
       intro: "Majoritatea formate prin sedimentare. Excepții: Mehedinți și Dobrogea de Nord." },
     { id: "campii", nume: "Câmpiile", tip: "campie",
       intro: "Cele mai joase unități. Deocamdată ai în caiet doar subdiviziunile." },
+    { id: "lunca", nume: "Lunca Dunării", tip: "campie",
+      intro: "Albia majoră a Dunării, de-a lungul graniței de sud și până la Brăila. Nu e în caiet; e luată din manuale și de pe internet." },
     { id: "delta", nume: "Delta Dunării", tip: "delta",
       intro: "Cea mai nouă și mai joasă unitate de relief." }
   ],
@@ -283,6 +285,20 @@ window.GEO = {
       tags: [],
       poligoane: [[[20.26,46.12],[20.6,45.8],[20.75,45.5],[21.0,45.2],[21.4,45.0],[21.5,45.45],[21.35,45.6],[21.45,46.2],[21.55,46.9],[21.75,47.6],[22.45,47.62],[22.88,47.95],[22.45,47.75],[22.0,47.55],[21.95,47.4],[21.65,46.95],[21.4,46.65],[21.17,46.3],[20.7,46.17]]],
       eticheta: [21.0, 45.95] },
+
+    /* ---------------- LUNCA DUNĂRII (nu e în caiet: din manuale și Wikipedia) ---------------- */
+    { id: "ld", capitol: "lunca", grupa: "Lunca Dunării", tip: "campie",
+      nume: "Lunca Dunării", scurt: "Lunca Dunării",
+      alt: "aprox. 5–35 m (scade de la vest spre est)", varfuri: [],
+      formare: "acumularea aluviunilor (nisipuri, mâluri) aduse și depuse de Dunăre în albia ei majoră",
+      roci: "depozite aluviale recente: nisipuri, mâluri, argile",
+      relief: "albia majoră a fluviului: grinduri, ostroave, brațe, bălți și lacuri (multe desecate și îndiguite pentru agricultură)",
+      tags: ["sedimentare"],
+      retine: ["Se întinde de la Porțile de Fier (Drobeta-Turnu Severin) până la Brăila, apoi continuă cu Delta", "Se lărgește spre est: până la ~10 km, mult mai mult la bălți",
+               "Bălțile mari: Balta Ialomiței (între brațul Borcea și Dunăre) și Balta Brăilei (Insula Mare a Brăilei)",
+               "Malul bulgăresc e înalt, cel românesc e jos, de aceea lunca e pe partea românească", "Informațiile nu sunt din caiet: verifică-le în manual"],
+      subunitati: ["Sectorul Drobeta – Calafat (îngust)", "Sectorul Calafat – Călărași", "Balta Ialomiței", "Balta Brăilei", "Sectorul Brăila – Tulcea"],
+      poligoane: [], eticheta: [27.85, 44.85] },
 
     /* ---------------- DELTA ---------------- */
     { id: "dd", capitol: "delta", grupa: "Delta Dunării", tip: "delta", incomplet: true,

@@ -62,6 +62,11 @@
    "tip": "campie"
   },
   {
+   "id": "LD",
+   "n": "Lunca Dunării",
+   "tip": "campie"
+  },
+  {
    "id": "DD",
    "n": "Delta Dunării",
    "tip": "delta"
@@ -415,15 +420,6 @@
      46.6
     ]
    ]
-  },
-  {
-   "id": "dt-per",
-   "n": "Dealurile și depresiunile peri-transilvane",
-   "scurt": "Dealuri peri-transilvane",
-   "mare": "DT",
-   "lectie": "dt",
-   "ordine": 1,
-   "seed": []
   },
   {
    "id": "dt-som",
@@ -1308,6 +1304,15 @@
    ]
   },
   {
+   "id": "ld",
+   "n": "Lunca Dunării (cu Balta Ialomiței și Balta Brăilei)",
+   "scurt": "Lunca Dunării",
+   "mare": "LD",
+   "lectie": "ld",
+   "ordine": 0,
+   "seed": []
+  },
+  {
    "id": "dd",
    "n": "Delta Dunării",
    "scurt": "Delta Dunării",
@@ -1392,5 +1397,47 @@
   "Vedea",
   "Tisa",
   "Bratul"
+ ],
+ "lunca": {
+  "rauri": [
+   "Danube",
+   "Borcea"
+  ],
+  "lon_min": 22.45,
+  "lon_max": 28.75,
+  "peste_rau_m": 12,
+  "dist_max_px": 30
+ },
+ "forta": [
+  {
+   "id": "co-s",
+   "_info": "Depresiunea Brașovului ține de Carpații de Curbură",
+   "poly": [
+    [
+     25.3,
+     45.98
+    ],
+    [
+     25.95,
+     46.02
+    ],
+    [
+     26.12,
+     45.75
+    ],
+    [
+     25.85,
+     45.52
+    ],
+    [
+     25.42,
+     45.55
+    ],
+    [
+     25.3,
+     45.75
+    ]
+   ]
+  }
  ]
 }

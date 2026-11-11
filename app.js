@@ -521,7 +521,7 @@ function exHigh(el) {
 
 /* ---------------- JOCURI PE HARTA OARBĂ ---------------- */
 const JOCURI = [
-  ["ro-mari", "România: unități de relief", "Cele 13 mari unități: Carpații, Subcarpații, dealurile, podișurile, câmpiile și Delta."],
+  ["ro-mari", "România: unități de relief", "Cele 14 mari unități: Carpații, Subcarpații, dealurile, podișurile, câmpiile, Lunca și Delta Dunării."],
   ["ro", "România: subunități de relief", "Toate cele 37 de subunități, ca pe harta de la examen."],
   ["ro-loc", "România: vârfuri și locuri", "Pui un pin pe harta de relief. Primești puncte după distanță."],
   ["eu", "Europa: țări", "Cele 46 de state ale Europei pe harta politică oarbă."],
