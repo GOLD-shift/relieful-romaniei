@@ -1,21 +1,22 @@
 <title>Relieful României</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@600;800&family=Alegreya+Sans:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
 <style>
-/* Layout: bară de navigare fixă sus + o coloană de conținut; culorile unităților sunt cele hipsometrice de pe hartă */
+/* Stil „Atlas”: fundal verde-gri deschis, carduri albe rotunjite, verde de pădure ca accent; culorile unităților sunt cele hipsometrice de pe hartă.
+   Layout: bară sus pe ecrane late, meniu jos pe telefon + o coloană de conținut */
 :root{
-  --bg:#f5f6f0; --surface:#ffffff; --sunk:#eceee6; --fg:#1f2a24; --muted:#5b6a60; --line:#d9dfd4;
-  --accent:#2f6b4f; --accent-soft:#e1eee5; --on-accent:#ffffff;
-  --h-munte:#9a5b2e; --h-deal:#c49a2c; --h-podis:#b8873f; --h-campie:#5a9445; --h-delta:#2d7f9a;
+  --bg:#eef2ee; --surface:#ffffff; --sunk:#e3e9e4; --fg:#17241d; --muted:#4c6157; --line:#d6dfd8;
+  --accent:#1f5a44; --accent-soft:#dcebe2; --on-accent:#ffffff;
+  --h-munte:#b7703c; --h-deal:#cf8a36; --h-podis:#d8c264; --h-campie:#6fae58; --h-delta:#3f9bb7;
   --map-land:#e9ead9; --map-sea:#d5e7ef;
   --ok:#2f7d4a; --bad:#b2402f;
   --i-rock:#b39a80; --i-rock2:#7d6650; --i-grass:#9cc28a; --i-sand:#e2c98f; --i-clay:#c79b72; --i-loess:#e8d59c;
   --i-water:#7fb7d6; --i-snow:#ffffff; --i-lava:#d65b3a; --i-gas:#a9d0ef; --i-salt:#f7f5ee;
-  --f-display:"Alegreya",Georgia,serif; --f-body:"Alegreya Sans",system-ui,sans-serif; --f-mono:"JetBrains Mono",ui-monospace,monospace;
+  --f-display:"Bricolage Grotesque",system-ui,sans-serif; --f-body:"Inter",system-ui,sans-serif; --f-mono:"JetBrains Mono",ui-monospace,monospace;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#131915; --surface:#1b231e; --sunk:#161d18; --fg:#e7ece6; --muted:#9fb0a4; --line:#2e3a33;
+  --bg:#101813; --surface:#18231c; --sunk:#131d17; --fg:#e8eee9; --muted:#a2b4a8; --line:#2b3a31;
   --accent:#7cc39c; --accent-soft:#213328; --on-accent:#10261a;
   --h-munte:#c98451; --h-deal:#d9b84f; --h-podis:#c99d5a; --h-campie:#7fbd68; --h-delta:#5cb3cf;
   --map-land:#232c26; --map-sea:#18262d;
@@ -23,7 +24,7 @@
   --i-rock:#8a7360; --i-rock2:#5f4b3a; --i-grass:#5c8a4c; --i-sand:#b59a62; --i-clay:#9a7352; --i-loess:#b8a46c;
   --i-water:#3f7fa2; --i-snow:#e8eef2; --i-lava:#d65b3a; --i-gas:#6aa0c8; --i-salt:#d9d4c8; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#131915; --surface:#1b231e; --sunk:#161d18; --fg:#e7ece6; --muted:#9fb0a4; --line:#2e3a33;
+  --bg:#101813; --surface:#18231c; --sunk:#131d17; --fg:#e8eee9; --muted:#a2b4a8; --line:#2b3a31;
   --accent:#7cc39c; --accent-soft:#213328; --on-accent:#10261a;
   --h-munte:#c98451; --h-deal:#d9b84f; --h-podis:#c99d5a; --h-campie:#7fbd68; --h-delta:#5cb3cf;
   --map-land:#232c26; --map-sea:#18262d;
@@ -50,6 +51,22 @@ button:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline:2px s
 .nav button{white-space:nowrap;font:600 .92rem var(--f-body);border:0;background:transparent;color:var(--muted);border-radius:8px;padding:7px 11px;cursor:pointer}
 .nav button.on{background:var(--accent-soft);color:var(--accent)}
 .nav button:hover{color:var(--fg)}
+.nav button svg{display:none;width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+/* telefon: meniul coboară jos, 5 butoane cu iconițe */
+@media (max-width:720px){
+  .topbar{position:static;border:0;background:transparent}
+  .brand{display:none}
+  .topbar-in{padding-block:0}
+  .nav{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--surface);border-top:1px solid var(--line);
+    display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;overflow:visible;
+    padding:6px max(8px,env(safe-area-inset-right,0px)) calc(8px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px))}
+  .nav .sec{display:none}
+  .nav button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:48px;padding:4px 2px;font-size:.72rem;border-radius:10px}
+  .nav button svg{display:block}
+  .nav button.on{background:transparent;color:var(--accent)}
+  main{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
+}
+
 
 main{max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:22px;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 72px}
@@ -109,6 +126,27 @@ ul.list{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:3px}
 .mini-fotos .foto figcaption{font-size:.8rem}
 .map-eu img{aspect-ratio:auto;object-fit:contain}
 .cap.sel{box-shadow:0 0 0 2px var(--c)}
+/* pagina de start, stil atlas */
+.atlas-top{gap:14px}
+.atlas-top h1{font-weight:800;letter-spacing:-.01em}
+.hero-card{border:0;border-radius:22px;padding:14px;box-shadow:0 1px 0 rgba(23,36,29,.06)}
+.mm{display:block;width:100%;padding:0;border:0;background:none;cursor:pointer;border-radius:14px}
+.mm svg{display:block;width:100%;height:auto}
+.mm-sea{fill:var(--map-sea)}
+.mm-line{fill:none;stroke:var(--surface);stroke-width:1.2;stroke-linejoin:round}
+.mm-border{fill:none;stroke:var(--fg);stroke-width:2;stroke-linejoin:round}
+.stack0{display:flex;flex-direction:column;gap:2px;min-width:0}
+.btn-lg{padding:12px 22px;border-radius:14px;font-size:1rem}
+.stats2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.stats2 .stat{border:0;border-radius:18px;padding:14px}
+.cont{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:var(--surface);border:0;border-radius:18px;padding:12px 14px;cursor:pointer;color:var(--fg);font:inherit}
+.cont > i{width:40px;height:40px;border-radius:12px;flex:none}
+.cont > span{display:flex;flex-direction:column;flex:1;min-width:0}
+.cont svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;flex:none}
+.quick{display:flex;flex-wrap:wrap;gap:8px}
+.quick .chip{padding:8px 14px;min-height:40px;font-size:.92rem}
+.panel{border-radius:18px}
+
 
 /* jocuri pe harta oarbă — paleta hărții e fixă (apă, uscat, zone), ca pe o hartă tipărită */
 .jh{display:flex;flex-direction:column;gap:10px;--jh-sea:#a9cdd8;--jh-land:#d9d6c8;--jh-reg:#f1efe6;--jh-line:#3b3a36;--jh-hi:#2f6fb5;
@@ -228,15 +266,15 @@ select{font:500 1rem var(--f-body);background:var(--surface);color:var(--fg);bor
 <header class="topbar">
   <div class="topbar-in">
     <button class="brand" data-go="acasa">Relieful României</button>
-    <nav class="nav" id="nav">
-      <button data-go="acasa">Acasă</button>
-      <button data-go="harta">Hartă</button>
-      <button data-go="lectii">Lecții</button>
-      <button data-go="relief">Tipuri de relief</button>
-      <button data-go="varfuri">Altitudini</button>
-      <button data-go="comparatii">Comparații</button>
-      <button data-go="jocuri">Jocuri pe hartă</button>
-      <button data-go="exersare">Exersare</button>
+    <nav class="nav" id="nav" aria-label="Meniu">
+      <button data-go="acasa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>Acasă</span></button>
+      <button data-go="harta"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15M15 6v15"/></svg><span>Hartă</span></button>
+      <button data-go="lectii"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg><span>Lecții</span></button>
+      <button data-go="relief" class="sec"><span>Tipuri de relief</span></button>
+      <button data-go="varfuri" class="sec"><span>Altitudini</span></button>
+      <button data-go="comparatii" class="sec"><span>Comparații</span></button>
+      <button data-go="jocuri"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><span>Jocuri</span></button>
+      <button data-go="exersare"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="14" height="14" rx="2"/><path d="M7 3h12a2 2 0 0 1 2 2v12"/></svg><span>Exersare</span></button>
     </nav>
   </div>
 </header>

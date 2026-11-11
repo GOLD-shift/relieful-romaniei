@@ -75,25 +75,40 @@ function render() {
   document.querySelectorAll("#nav button").forEach(b => b.classList.toggle("on", b.dataset.go === state.view || (state.view === "unitate" && b.dataset.go === "lectii")));
 }
 
+/* Hartă mică, colorată pe marile unități (pagina de start, stil atlas) */
+function miniHarta() {
+  if (!HR.meta) return mapSVG({ labels: false });
+  const tip = {}; HR.meta.mari.forEach(m => tip[m.id] = m.tip);
+  let s = `<svg viewBox="0 0 ${MW.toFixed(1)} ${MH.toFixed(1)}" role="img" aria-label="Harta unităților de relief ale României"><rect class="mm-sea" width="${MW.toFixed(1)}" height="${MH.toFixed(1)}" rx="14"/>`;
+  HR.meta.mari.forEach(m => { s += `<path style="fill:${COL[tip[m.id]]};fill-rule:evenodd" d="${HR.mari[m.id].map(path).join("")}"/>`; });
+  return s + `<path class="mm-line" d="${HR.meta.mari.map(m => HR.mari[m.id].map(path).join("")).join("")}"/><path class="mm-border" d="${HR.granita.map(path).join("")}"/></svg>`;
+}
+
 /* ---------------- ACASĂ ---------------- */
 const stat = (l, n, t) => `<div class="stat"><span class="label">${l}</span><b>${n} <span class="muted small">/ ${t}</span></b><div class="bar"><i style="width:${t ? Math.round(n / t * 100) : 0}%"></i></div></div>`;
 function acasa() {
   const nL = full.filter(u => learned[u.id]).length;
   const cards = allCards(), stap = cards.filter(c => (boxes[c.id] || 1) >= 4).length;
+  const PROV = [["ro", "Toate cele 37 de subunități pe harta oarbă"], ["ro-mari", "Cele 14 unități de relief"], ["ro-loc", "Vârfuri și locuri: pune pinul"], ["eu", "Cele 46 de țări ale Europei"]];
+  const zi = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0)) / 864e5), prov = PROV[zi % PROV.length];
+  const rec = S.get("best-ro-click", null), urm = full.find(u => !learned[u.id]);
   V.innerHTML = `
-  <section class="hero">
-    <div class="stack">
-      <span class="label">Geografie · după caietul tău</span>
-      <h1>Relieful României</h1>
-      <p class="lead">Fiecare unitate de relief se învață cu aceleași 4 întrebări: <b>formare, roci, altitudine, tipuri de relief</b>. Apoi le compari între ele și te testezi.</p>
-      <div class="row" style="justify-content:flex-start"><button class="btn primary" data-go="lectii">Începe lecțiile</button><button class="btn" data-go="jocuri" data-arg="ro">Jocuri pe hartă</button><button class="btn" data-go="exersare">Exersează</button></div>
+  <section class="stack atlas-top">
+    <div><span class="label">Geografie · clasa a XII-a</span><h1>Relieful României</h1></div>
+    <div class="panel hero-card">
+      <button class="mm" data-go="harta" aria-label="Deschide harta reliefului">${miniHarta()}</button>
+      <div class="legend">${["munte", "deal", "podis", "campie", "delta"].map(k => `<span><i class="dot" style="background:${COL[k]}"></i>${TIPN[k]}</span>`).join("")}</div>
+      <div class="row"><div class="stack0"><span class="small muted">Provocarea zilei</span><b>${esc(prov[1])}</b></div>
+        <button class="btn primary btn-lg" data-go="jocuri" data-arg="${prov[0]}">Joacă</button></div>
     </div>
-    <div class="map panel" style="padding:6px">${mapSVG({ labels: false })}</div>
-  </section>
-  <section class="stats">
-    ${stat("Unități învățate", nL, full.length)}
-    ${stat("Cartonașe stăpânite", stap, cards.length)}
-    <div class="stat"><span class="label">Record la „Ce unitate e?”</span><b>${best.unitate || 0}</b><span class="muted small">răspunsuri corecte la rând</span></div>
+    <div class="stats2">
+      <div class="stat"><span class="small muted">Unități învățate</span><b>${nL}<span class="muted small"> / ${full.length}</span></b><div class="bar"><i style="width:${Math.round(nL / full.length * 100)}%"></i></div></div>
+      <div class="stat"><span class="small muted">Record harta oarbă</span>${rec ? `<b>${rec.p}%</b><span class="small muted">în ${Math.floor(rec.s / 60)}:${String(rec.s % 60).padStart(2, "0")} · subunități</span>` : `<b>–</b><span class="small muted">încă nejucat</span>`}</div>
+    </div>
+    <span class="label">Continuă</span>
+    ${urm ? `<button class="cont" data-go="unitate" data-arg="${urm.id}"><i style="background:${COL[urm.tip]}"></i><span><b>${esc(urm.nume)}</b><span class="small muted">${esc(capById[urm.capitol].nume)} · ${nL} din ${full.length} învățate</span></span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>` : `<p class="muted">Ai bifat toate unitățile. Treci la jocuri și cartonașe.</p>`}
+    <div class="quick">${[["relief", "Tipuri de relief"], ["varfuri", "Altitudini"], ["comparatii", "Comparații"], ["surse", "Surse imagini"]].map(([k, n]) => `<button class="chip" data-go="${k}">${n}</button>`).join("")}</div>
   </section>
   <section class="stack"><h2>Capitole</h2><div class="grid">${CAP.map(c => {
     const us = U.filter(u => u.capitol === c.id), l = us.filter(u => learned[u.id]).length;
