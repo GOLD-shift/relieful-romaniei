@@ -59,6 +59,7 @@ const km = (a, b) => { const R = 6371, r = Math.PI / 180, dLa = (b[1] - a[1]) * 
   const h = Math.sin(dLa / 2) ** 2 + Math.cos(a[1] * r) * Math.cos(b[1] * r) * Math.sin(dLo / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(h)); };
 const inPoly = (pt, pg) => { let c = false; for (let i = 0, j = pg.length - 1; i < pg.length; j = i++) {
   const [xi, yi] = pg[i], [xj, yj] = pg[j]; if ((yi > pt[1]) !== (yj > pt[1]) && pt[0] < (xj - xi) * (pt[1] - yi) / (yj - yi) + xi) c = !c; } return c; };
+const zoomOn = cadru => { if (cadru && window.ZoomHarta) ZoomHarta(cadru, cadru.querySelector("svg")); };
 const bindMap = fn => V.querySelectorAll(".reg").forEach(r => r.addEventListener("click", () => fn(r.dataset.id)));
 
 /* ---------------- navigare ---------------- */
@@ -167,7 +168,14 @@ function harta() {
     V.querySelector("#lblBtn").onclick = () => { labels = !labels; S.set("labels", labels); draw(); };
     V.querySelector("#regBtn").onclick = () => { regions = !regions; S.set("regions", regions); draw(); };
     V.querySelector("#subBtn").onclick = () => { subs = !subs; S.set("subs", subs); draw(); };
-    bindMap(id => { sel = id; draw(); V.querySelector("#mapInfo").scrollIntoView({ block: "nearest" }); });
+    // selecția nu redesenează harta, ca mărirea și poziția să rămână
+    bindMap(id => {
+      sel = id;
+      V.querySelectorAll(".reg").forEach(r => { r.classList.toggle("on", r.dataset.id === id); r.classList.toggle("dim", r.dataset.id !== id); });
+      V.querySelector("#mapInfo").innerHTML = mini(byId[id]);
+      V.querySelector("#mapInfo").scrollIntoView({ block: "nearest" });
+    });
+    zoomOn(V.querySelector(".map.panel"));
   };
   draw();
 }
@@ -216,6 +224,7 @@ function unitate() {
   const lb = V.querySelector("#learnBtn");
   if (lb) lb.onclick = () => { learned[u.id] = !learned[u.id]; S.set("learned", learned); render(); };
   bindMap(id => go("unitate", id));
+  zoomOn(V.querySelector(".map.panel"));
 }
 
 /* ---------------- TIPURI DE RELIEF ---------------- */
@@ -351,6 +360,7 @@ function exMap(el) {
     el.querySelector("#setU").onclick = () => { set = "unitati"; S.set("mapSet", set); start(); };
     el.querySelector("#setL").onclick = () => { set = "locuri"; S.set("mapSet", set); start(); };
     const svg = el.querySelector(".play svg");
+    zoomOn(el.querySelector(".play"));
     svg.addEventListener("click", e => {
       if (guess) return;
       const p = svg.createSVGPoint(); p.x = e.clientX; p.y = e.clientY;
@@ -398,6 +408,7 @@ function exMarked(el) {
       msg.innerHTML = ok ? `<span class="same-l">Corect.</span>` : `<span class="diff-l">Este:</span> <button class="chip" data-go="unitate" data-arg="${cur.id}">${esc(cur.nume)}</button>`;
       answer(ok);
     });
+    zoomOn(box.querySelector(".map"));
   });
 }
 

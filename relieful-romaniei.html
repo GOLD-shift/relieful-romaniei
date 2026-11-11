@@ -179,6 +179,23 @@ ul.list{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:3px}
 .learn .jh-map svg{cursor:help}
 @media (prefers-reduced-motion:reduce){.jh-r{transition:none}}
 .quiz-photo{max-width:640px;width:100%;margin:0 auto}
+/* hărți: mărire, glisare, ecran complet (zoom-harta.js) */
+.zh{position:relative}
+.zh svg{user-select:none;-webkit-user-select:none}
+.zh-zoomed svg{cursor:grab}
+.zh-btns{position:absolute;right:10px;top:10px;display:flex;flex-direction:column;gap:6px;z-index:3}
+.zh-btns button{width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--fg);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.12);padding:0}
+.zh-btns button:hover{border-color:var(--accent);color:var(--accent)}
+.zh-btns svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.jh-r,.jh-border,.jh-riv,.jh-land,.map .reg,.map .sub-l,.map .pin-line{vector-effect:non-scaling-stroke}
+html.zh-lock,html.zh-lock body{overflow:hidden}
+.zh-full{position:fixed!important;inset:0;z-index:1000;margin:0!important;border-radius:0!important;background:var(--bg);display:flex;flex-direction:column;gap:8px;
+  padding:calc(8px + env(safe-area-inset-top,0px)) max(8px,env(safe-area-inset-right,0px)) calc(8px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px));overflow:auto}
+.zh-full .jh-map,.map.zh-full{flex:1;min-height:0}
+.zh-full .jh-map svg,.map.zh-full > svg{width:100%;height:100%}
+.map.zh-full > svg{flex:1;min-height:0}
+.zh-full .jh-tools,.zh-full #jhBest{display:none}
+
 .quiz-photo img{aspect-ratio:3/2}
 .notext text{display:none}
 section[id]{scroll-margin-top:72px}
@@ -284,5 +301,6 @@ select{font:500 1rem var(--f-body);background:var(--surface);color:var(--fg);bor
 <script src="ilustratii.js"></script>
 <script src="harta-romania.js"></script>
 <script src="harta-europa.js"></script>
+<script src="zoom-harta.js"></script>
 <script src="joc-harta.js"></script>
 <script src="app.js"></script>

@@ -33,7 +33,7 @@ window.JocHarta = function (el, cfg) {
       </div>
       <div class="jh-map" id="jhMap">
         <svg viewBox="0 0 ${cfg.w} ${cfg.h}" role="img" aria-label="${esc(cfg.titlu)}">
-          <rect class="jh-sea" width="${cfg.w}" height="${cfg.h}"/>${cfg.fundal || ""}
+          <rect class="jh-sea" x="${-2 * cfg.w}" y="${-2 * cfg.h}" width="${5 * cfg.w}" height="${5 * cfg.h}"/>${cfg.fundal || ""}
           <g id="jhReg">${cfg.regiuni.map(r => `<path class="jh-r" data-id="${r.id}" d="${r.d}"/>`).join("")}</g>
           <g id="jhMic">${cfg.regiuni.filter(r => r.mic).map(r => `<circle class="jh-r jh-mic" data-id="${r.id}" cx="${r.mic[0]}" cy="${r.mic[1]}" r="${cfg.razaMic || 7}"/>`).join("")}</g>
           ${cfg.peste || ""}
@@ -53,6 +53,7 @@ window.JocHarta = function (el, cfg) {
     el.querySelector("#jhSkip").onclick = skip;
     el.querySelector("#jhLearn").onclick = () => { invat = !invat; el.querySelector("#jhLearn").textContent = "Mod învățare: " + (invat ? "pornit" : "oprit"); el.querySelector(".jh").classList.toggle("learn", invat); hideLbl(); };
     const svg = el.querySelector("svg");
+    if (window.ZoomHarta) ZoomHarta(el.querySelector(".jh-map"), svg, { tinta: el.querySelector(".jh") });
     svg.addEventListener("click", e => { const t = e.target.closest(".jh-r"); if (t) onRegion(t.dataset.id, e); });
     svg.addEventListener("mousemove", e => { if (!invat) return; const t = e.target.closest(".jh-r"); t ? showLbl(t.dataset.id, e) : hideLbl(); });
     svg.addEventListener("mouseleave", hideLbl);
