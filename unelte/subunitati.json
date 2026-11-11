@@ -1,0 +1,1396 @@
+{
+ "_info": "Subunitățile de relief (lista din programa de geografie). 'seed' = contur aproximativ [lon, lat] de la care pornește calculul; granițele finale se mută după altitudine și râuri. 'ordine' = cine acoperă pe cine unde contururile se suprapun (mai mare = deasupra).",
+ "mari": [
+  {
+   "id": "CO",
+   "n": "Carpații Orientali",
+   "tip": "munte"
+  },
+  {
+   "id": "CM",
+   "n": "Carpații Meridionali",
+   "tip": "munte"
+  },
+  {
+   "id": "CC",
+   "n": "Carpații Occidentali",
+   "tip": "munte"
+  },
+  {
+   "id": "DT",
+   "n": "Depresiunea colinară a Transilvaniei",
+   "tip": "podis"
+  },
+  {
+   "id": "SC",
+   "n": "Subcarpații",
+   "tip": "deal"
+  },
+  {
+   "id": "DV",
+   "n": "Dealurile de Vest",
+   "tip": "deal"
+  },
+  {
+   "id": "PMD",
+   "n": "Podișul Moldovei",
+   "tip": "podis"
+  },
+  {
+   "id": "PG",
+   "n": "Podișul Getic",
+   "tip": "podis"
+  },
+  {
+   "id": "PM",
+   "n": "Podișul Mehedinți",
+   "tip": "podis"
+  },
+  {
+   "id": "PD",
+   "n": "Podișul Dobrogei",
+   "tip": "podis"
+  },
+  {
+   "id": "CV",
+   "n": "Câmpia de Vest",
+   "tip": "campie"
+  },
+  {
+   "id": "CR",
+   "n": "Câmpia Română",
+   "tip": "campie"
+  },
+  {
+   "id": "DD",
+   "n": "Delta Dunării",
+   "tip": "delta"
+  }
+ ],
+ "sub": [
+  {
+   "id": "co-n",
+   "n": "Grupa nordică a Carpaților Orientali (Carpații Maramureșului și ai Bucovinei)",
+   "scurt": "Orientali – grupa nordică",
+   "mare": "CO",
+   "lectie": "co-n",
+   "ordine": 5,
+   "seed": [
+    [
+     23.0,
+     47.9
+    ],
+    [
+     25.3,
+     47.85
+    ],
+    [
+     25.9,
+     47.45
+    ],
+    [
+     25.7,
+     47.1
+    ],
+    [
+     24.9,
+     47.2
+    ],
+    [
+     24.6,
+     47.3
+    ],
+    [
+     24.2,
+     47.5
+    ],
+    [
+     23.7,
+     47.62
+    ],
+    [
+     23.0,
+     47.75
+    ]
+   ]
+  },
+  {
+   "id": "co-c",
+   "n": "Grupa centrală a Carpaților Orientali (Carpații Moldo-Transilvani)",
+   "scurt": "Orientali – grupa centrală",
+   "mare": "CO",
+   "lectie": "co-c",
+   "ordine": 5,
+   "seed": [
+    [
+     24.6,
+     47.25
+    ],
+    [
+     25.7,
+     47.1
+    ],
+    [
+     26.15,
+     46.8
+    ],
+    [
+     26.4,
+     46.3
+    ],
+    [
+     26.3,
+     46.1
+    ],
+    [
+     25.9,
+     46.05
+    ],
+    [
+     25.5,
+     46.1
+    ],
+    [
+     25.3,
+     46.5
+    ],
+    [
+     24.9,
+     46.9
+    ]
+   ]
+  },
+  {
+   "id": "co-s",
+   "n": "Grupa sudică a Carpaților Orientali (Carpații de Curbură)",
+   "scurt": "Orientali – grupa sudică",
+   "mare": "CO",
+   "lectie": "co-s",
+   "ordine": 5,
+   "seed": [
+    [
+     25.5,
+     46.05
+    ],
+    [
+     25.9,
+     46.05
+    ],
+    [
+     26.3,
+     46.1
+    ],
+    [
+     26.55,
+     45.95
+    ],
+    [
+     26.6,
+     45.5
+    ],
+    [
+     26.1,
+     45.35
+    ],
+    [
+     25.6,
+     45.48
+    ],
+    [
+     25.45,
+     45.75
+    ]
+   ]
+  },
+  {
+   "id": "cm-b",
+   "n": "Grupa Bucegi (Bucegi, Leaota, Piatra Craiului)",
+   "scurt": "Grupa Bucegi",
+   "mare": "CM",
+   "lectie": "cm-b",
+   "ordine": 6,
+   "seed": [
+    [
+     25.2,
+     45.6
+    ],
+    [
+     25.6,
+     45.5
+    ],
+    [
+     25.55,
+     45.25
+    ],
+    [
+     25.2,
+     45.28
+    ]
+   ]
+  },
+  {
+   "id": "cm-f",
+   "n": "Grupa Făgăraș",
+   "scurt": "Grupa Făgăraș",
+   "mare": "CM",
+   "lectie": "cm-f",
+   "ordine": 6,
+   "seed": [
+    [
+     24.3,
+     45.65
+    ],
+    [
+     25.2,
+     45.6
+    ],
+    [
+     25.2,
+     45.28
+    ],
+    [
+     24.3,
+     45.3
+    ]
+   ]
+  },
+  {
+   "id": "cm-p",
+   "n": "Grupa Parâng",
+   "scurt": "Grupa Parâng",
+   "mare": "CM",
+   "lectie": "cm-p",
+   "ordine": 6,
+   "seed": [
+    [
+     23.25,
+     45.6
+    ],
+    [
+     23.5,
+     45.85
+    ],
+    [
+     24.0,
+     45.8
+    ],
+    [
+     24.3,
+     45.65
+    ],
+    [
+     24.3,
+     45.3
+    ],
+    [
+     23.4,
+     45.2
+    ]
+   ]
+  },
+  {
+   "id": "cm-r",
+   "n": "Grupa Retezat-Godeanu",
+   "scurt": "Grupa Retezat-Godeanu",
+   "mare": "CM",
+   "lectie": "cm-r",
+   "ordine": 6,
+   "seed": [
+    [
+     22.4,
+     45.5
+    ],
+    [
+     23.25,
+     45.6
+    ],
+    [
+     23.4,
+     45.2
+    ],
+    [
+     22.6,
+     45.0
+    ],
+    [
+     22.3,
+     45.1
+    ]
+   ]
+  },
+  {
+   "id": "oc-b",
+   "n": "Munții Banatului",
+   "scurt": "Munții Banatului",
+   "mare": "CC",
+   "lectie": "oc-b",
+   "ordine": 6,
+   "seed": [
+    [
+     21.5,
+     45.4
+    ],
+    [
+     22.3,
+     45.4
+    ],
+    [
+     22.4,
+     45.1
+    ],
+    [
+     22.3,
+     44.75
+    ],
+    [
+     21.6,
+     44.7
+    ],
+    [
+     21.5,
+     45.0
+    ]
+   ]
+  },
+  {
+   "id": "oc-pr",
+   "n": "Munții Poiana Ruscă",
+   "scurt": "Munții Poiana Ruscă",
+   "mare": "CC",
+   "lectie": "oc-pr",
+   "ordine": 6,
+   "seed": [
+    [
+     22.25,
+     45.85
+    ],
+    [
+     22.9,
+     45.85
+    ],
+    [
+     22.95,
+     45.6
+    ],
+    [
+     22.4,
+     45.5
+    ]
+   ]
+  },
+  {
+   "id": "oc-a",
+   "n": "Munții Apuseni",
+   "scurt": "Munții Apuseni",
+   "mare": "CC",
+   "lectie": "oc-a",
+   "ordine": 6,
+   "seed": [
+    [
+     22.0,
+     46.95
+    ],
+    [
+     23.3,
+     46.95
+    ],
+    [
+     23.6,
+     46.6
+    ],
+    [
+     23.4,
+     46.1
+    ],
+    [
+     22.8,
+     45.95
+    ],
+    [
+     22.2,
+     46.2
+    ],
+    [
+     21.9,
+     46.6
+    ]
+   ]
+  },
+  {
+   "id": "dt-per",
+   "n": "Dealurile și depresiunile peri-transilvane",
+   "scurt": "Dealuri peri-transilvane",
+   "mare": "DT",
+   "lectie": "dt",
+   "ordine": 1,
+   "seed": []
+  },
+  {
+   "id": "dt-som",
+   "n": "Podișul Someșan",
+   "scurt": "Podișul Someșan",
+   "mare": "DT",
+   "lectie": "dt",
+   "ordine": 3,
+   "seed": [
+    [
+     23.2,
+     47.35
+    ],
+    [
+     24.35,
+     47.3
+    ],
+    [
+     24.5,
+     47.0
+    ],
+    [
+     24.0,
+     46.85
+    ],
+    [
+     23.6,
+     46.8
+    ],
+    [
+     23.3,
+     46.95
+    ]
+   ]
+  },
+  {
+   "id": "dt-ct",
+   "n": "Câmpia Transilvaniei",
+   "scurt": "Câmpia Transilvaniei",
+   "mare": "DT",
+   "lectie": "dt",
+   "ordine": 3,
+   "seed": [
+    [
+     23.95,
+     46.9
+    ],
+    [
+     24.5,
+     47.05
+    ],
+    [
+     24.85,
+     46.8
+    ],
+    [
+     24.7,
+     46.5
+    ],
+    [
+     24.2,
+     46.45
+    ],
+    [
+     23.75,
+     46.55
+    ]
+   ]
+  },
+  {
+   "id": "dt-tar",
+   "n": "Podișul Târnavelor",
+   "scurt": "Podișul Târnavelor",
+   "mare": "DT",
+   "lectie": "dt",
+   "ordine": 3,
+   "seed": [
+    [
+     23.5,
+     46.45
+    ],
+    [
+     24.2,
+     46.45
+    ],
+    [
+     24.7,
+     46.5
+    ],
+    [
+     25.3,
+     46.45
+    ],
+    [
+     25.5,
+     46.0
+    ],
+    [
+     25.0,
+     45.8
+    ],
+    [
+     24.0,
+     45.8
+    ],
+    [
+     23.4,
+     45.95
+    ]
+   ]
+  },
+  {
+   "id": "sc-m",
+   "n": "Subcarpații Moldovei",
+   "scurt": "Subcarpații Moldovei",
+   "mare": "SC",
+   "lectie": "sc-m",
+   "ordine": 4,
+   "seed": [
+    [
+     25.9,
+     47.45
+    ],
+    [
+     26.3,
+     47.35
+    ],
+    [
+     26.6,
+     46.8
+    ],
+    [
+     26.65,
+     46.2
+    ],
+    [
+     26.45,
+     46.0
+    ],
+    [
+     26.25,
+     46.15
+    ],
+    [
+     26.15,
+     46.8
+    ],
+    [
+     25.7,
+     47.1
+    ]
+   ]
+  },
+  {
+   "id": "sc-c",
+   "n": "Subcarpații de Curbură",
+   "scurt": "Subcarpații de Curbură",
+   "mare": "SC",
+   "lectie": "sc-c",
+   "ordine": 4,
+   "seed": [
+    [
+     26.55,
+     45.95
+    ],
+    [
+     26.95,
+     45.8
+    ],
+    [
+     26.85,
+     45.25
+    ],
+    [
+     26.2,
+     45.05
+    ],
+    [
+     25.6,
+     45.15
+    ],
+    [
+     25.6,
+     45.45
+    ],
+    [
+     26.1,
+     45.35
+    ],
+    [
+     26.6,
+     45.5
+    ]
+   ]
+  },
+  {
+   "id": "sc-g",
+   "n": "Subcarpații Getici",
+   "scurt": "Subcarpații Getici",
+   "mare": "SC",
+   "lectie": "sc-g",
+   "ordine": 4,
+   "seed": [
+    [
+     22.6,
+     45.05
+    ],
+    [
+     23.35,
+     45.22
+    ],
+    [
+     24.25,
+     45.3
+    ],
+    [
+     25.2,
+     45.28
+    ],
+    [
+     25.6,
+     45.15
+    ],
+    [
+     25.5,
+     44.98
+    ],
+    [
+     24.3,
+     45.1
+    ],
+    [
+     23.2,
+     45.0
+    ],
+    [
+     22.8,
+     44.88
+    ]
+   ]
+  },
+  {
+   "id": "dv-s",
+   "n": "Dealurile Silvaniei",
+   "scurt": "Dealurile Silvaniei",
+   "mare": "DV",
+   "lectie": "dv",
+   "ordine": 3,
+   "seed": [
+    [
+     22.4,
+     47.55
+    ],
+    [
+     23.1,
+     47.62
+    ],
+    [
+     23.55,
+     47.4
+    ],
+    [
+     23.35,
+     47.05
+    ],
+    [
+     22.75,
+     47.0
+    ],
+    [
+     22.35,
+     47.15
+    ]
+   ]
+  },
+  {
+   "id": "dv-c",
+   "n": "Dealurile Crișanei",
+   "scurt": "Dealurile Crișanei",
+   "mare": "DV",
+   "lectie": "dv",
+   "ordine": 3,
+   "seed": [
+    [
+     21.75,
+     47.1
+    ],
+    [
+     22.35,
+     47.12
+    ],
+    [
+     22.2,
+     46.4
+    ],
+    [
+     21.8,
+     46.35
+    ],
+    [
+     21.65,
+     46.7
+    ]
+   ]
+  },
+  {
+   "id": "dv-b",
+   "n": "Dealurile Banatului (și Dealurile Lipovei)",
+   "scurt": "Dealurile Banatului",
+   "mare": "DV",
+   "lectie": "dv",
+   "ordine": 3,
+   "seed": [
+    [
+     21.45,
+     46.25
+    ],
+    [
+     22.1,
+     46.2
+    ],
+    [
+     22.3,
+     45.85
+    ],
+    [
+     22.0,
+     45.45
+    ],
+    [
+     21.5,
+     45.45
+    ],
+    [
+     21.4,
+     45.9
+    ]
+   ]
+  },
+  {
+   "id": "pmd-s",
+   "n": "Podișul Sucevei",
+   "scurt": "Podișul Sucevei",
+   "mare": "PMD",
+   "lectie": "pmd",
+   "ordine": 3,
+   "seed": [
+    [
+     25.9,
+     47.9
+    ],
+    [
+     26.6,
+     48.2
+    ],
+    [
+     26.9,
+     47.75
+    ],
+    [
+     26.8,
+     47.15
+    ],
+    [
+     26.35,
+     47.1
+    ],
+    [
+     26.1,
+     47.4
+    ]
+   ]
+  },
+  {
+   "id": "pmd-c",
+   "n": "Câmpia Moldovei (Câmpia Jijiei)",
+   "scurt": "Câmpia Moldovei",
+   "mare": "PMD",
+   "lectie": "pmd",
+   "ordine": 3,
+   "seed": [
+    [
+     26.95,
+     48.1
+    ],
+    [
+     27.3,
+     47.7
+    ],
+    [
+     27.75,
+     47.3
+    ],
+    [
+     27.55,
+     47.08
+    ],
+    [
+     27.05,
+     47.18
+    ],
+    [
+     26.9,
+     47.65
+    ]
+   ]
+  },
+  {
+   "id": "pmd-b",
+   "n": "Podișul Bârladului",
+   "scurt": "Podișul Bârladului",
+   "mare": "PMD",
+   "lectie": "pmd",
+   "ordine": 3,
+   "seed": [
+    [
+     26.85,
+     47.05
+    ],
+    [
+     27.6,
+     47.05
+    ],
+    [
+     28.1,
+     46.9
+    ],
+    [
+     28.2,
+     46.3
+    ],
+    [
+     28.0,
+     45.95
+    ],
+    [
+     27.4,
+     45.85
+    ],
+    [
+     27.1,
+     46.2
+    ],
+    [
+     26.9,
+     46.6
+    ]
+   ]
+  },
+  {
+   "id": "pg",
+   "n": "Podișul Getic",
+   "scurt": "Podișul Getic",
+   "mare": "PG",
+   "lectie": "pg",
+   "ordine": 3,
+   "seed": [
+    [
+     22.8,
+     44.88
+    ],
+    [
+     23.2,
+     45.0
+    ],
+    [
+     24.3,
+     45.1
+    ],
+    [
+     25.5,
+     44.95
+    ],
+    [
+     25.6,
+     44.7
+    ],
+    [
+     24.9,
+     44.55
+    ],
+    [
+     24.0,
+     44.45
+    ],
+    [
+     23.3,
+     44.45
+    ],
+    [
+     22.9,
+     44.6
+    ]
+   ]
+  },
+  {
+   "id": "pm",
+   "n": "Podișul Mehedinți",
+   "scurt": "Podișul Mehedinți",
+   "mare": "PM",
+   "lectie": "pm",
+   "ordine": 7,
+   "seed": [
+    [
+     22.45,
+     45.02
+    ],
+    [
+     22.8,
+     44.88
+    ],
+    [
+     22.9,
+     44.6
+    ],
+    [
+     22.65,
+     44.63
+    ],
+    [
+     22.45,
+     44.75
+    ]
+   ]
+  },
+  {
+   "id": "dn",
+   "n": "Masivul Dobrogei de Nord",
+   "scurt": "Dobrogea de Nord",
+   "mare": "PD",
+   "lectie": "dn",
+   "ordine": 3,
+   "seed": [
+    [
+     28.1,
+     45.25
+    ],
+    [
+     28.5,
+     45.3
+    ],
+    [
+     28.85,
+     45.2
+    ],
+    [
+     28.95,
+     44.95
+    ],
+    [
+     28.5,
+     44.9
+    ],
+    [
+     28.1,
+     44.85
+    ]
+   ]
+  },
+  {
+   "id": "dc",
+   "n": "Podișul Dobrogei Centrale (Podișul Casimcei)",
+   "scurt": "Dobrogea Centrală",
+   "mare": "PD",
+   "lectie": "dn",
+   "ordine": 3,
+   "seed": [
+    [
+     28.05,
+     44.78
+    ],
+    [
+     28.55,
+     44.88
+    ],
+    [
+     28.85,
+     44.72
+    ],
+    [
+     28.65,
+     44.38
+    ],
+    [
+     28.1,
+     44.45
+    ]
+   ]
+  },
+  {
+   "id": "ds",
+   "n": "Podișul Dobrogei de Sud",
+   "scurt": "Dobrogea de Sud",
+   "mare": "PD",
+   "lectie": "ds",
+   "ordine": 2,
+   "seed": [
+    [
+     27.27,
+     44.12
+    ],
+    [
+     27.6,
+     43.95
+    ],
+    [
+     28.0,
+     43.8
+    ],
+    [
+     28.58,
+     43.74
+    ],
+    [
+     28.65,
+     44.2
+    ],
+    [
+     28.3,
+     44.38
+    ],
+    [
+     27.9,
+     44.3
+    ]
+   ]
+  },
+  {
+   "id": "cv-s",
+   "n": "Câmpia Someșului",
+   "scurt": "Câmpia Someșului",
+   "mare": "CV",
+   "lectie": "cv",
+   "ordine": 2,
+   "seed": [
+    [
+     22.25,
+     47.95
+    ],
+    [
+     22.9,
+     47.98
+    ],
+    [
+     23.2,
+     47.75
+    ],
+    [
+     22.4,
+     47.58
+    ],
+    [
+     21.95,
+     47.5
+    ]
+   ]
+  },
+  {
+   "id": "cv-c",
+   "n": "Câmpia Crișurilor",
+   "scurt": "Câmpia Crișurilor",
+   "mare": "CV",
+   "lectie": "cv",
+   "ordine": 2,
+   "seed": [
+    [
+     21.15,
+     46.3
+    ],
+    [
+     21.45,
+     47.2
+    ],
+    [
+     21.95,
+     47.45
+    ],
+    [
+     21.8,
+     46.4
+    ],
+    [
+     21.5,
+     46.15
+    ]
+   ]
+  },
+  {
+   "id": "cv-b",
+   "n": "Câmpia Banatului",
+   "scurt": "Câmpia Banatului",
+   "mare": "CV",
+   "lectie": "cv",
+   "ordine": 2,
+   "seed": [
+    [
+     20.3,
+     46.1
+    ],
+    [
+     21.1,
+     46.08
+    ],
+    [
+     21.4,
+     45.5
+    ],
+    [
+     21.0,
+     45.2
+    ],
+    [
+     20.6,
+     45.5
+    ]
+   ]
+  },
+  {
+   "id": "cr-o",
+   "n": "Câmpia Olteniei",
+   "scurt": "Câmpia Olteniei",
+   "mare": "CR",
+   "lectie": "cr",
+   "ordine": 1,
+   "seed": [
+    [
+     22.7,
+     44.2
+    ],
+    [
+     23.0,
+     43.8
+    ],
+    [
+     24.3,
+     43.72
+    ],
+    [
+     24.4,
+     44.3
+    ],
+    [
+     23.4,
+     44.45
+    ]
+   ]
+  },
+  {
+   "id": "cr-oa",
+   "n": "Câmpia dintre Olt și Argeș (sectorul central)",
+   "scurt": "Câmpia Olt–Argeș",
+   "mare": "CR",
+   "lectie": "cr",
+   "ordine": 1,
+   "seed": [
+    [
+     24.5,
+     43.72
+    ],
+    [
+     25.4,
+     43.65
+    ],
+    [
+     25.97,
+     43.85
+    ],
+    [
+     26.3,
+     44.05
+    ],
+    [
+     25.5,
+     44.5
+    ],
+    [
+     24.6,
+     44.5
+    ]
+   ]
+  },
+  {
+   "id": "cr-b",
+   "n": "Câmpia Bucureștilor (sectorul central)",
+   "scurt": "Câmpia Bucureștilor",
+   "mare": "CR",
+   "lectie": "cr",
+   "ordine": 1,
+   "seed": [
+    [
+     25.6,
+     44.6
+    ],
+    [
+     26.2,
+     44.15
+    ],
+    [
+     26.7,
+     44.15
+    ],
+    [
+     26.8,
+     44.8
+    ],
+    [
+     26.2,
+     45.0
+    ],
+    [
+     25.7,
+     44.85
+    ]
+   ]
+  },
+  {
+   "id": "cr-br",
+   "n": "Câmpia Bărăganului (sectorul estic)",
+   "scurt": "Câmpia Bărăganului",
+   "mare": "CR",
+   "lectie": "cr",
+   "ordine": 1,
+   "seed": [
+    [
+     26.9,
+     44.25
+    ],
+    [
+     27.9,
+     44.3
+    ],
+    [
+     28.0,
+     44.75
+    ],
+    [
+     27.95,
+     45.2
+    ],
+    [
+     27.3,
+     45.25
+    ],
+    [
+     26.9,
+     44.9
+    ]
+   ]
+  },
+  {
+   "id": "cr-bs",
+   "n": "Câmpia Buzău–Siret (sectorul estic)",
+   "scurt": "Câmpia Buzău–Siret",
+   "mare": "CR",
+   "lectie": "cr",
+   "ordine": 1,
+   "seed": [
+    [
+     26.95,
+     45.35
+    ],
+    [
+     27.6,
+     45.3
+    ],
+    [
+     28.05,
+     45.35
+    ],
+    [
+     28.1,
+     45.9
+    ],
+    [
+     27.5,
+     45.85
+    ],
+    [
+     27.0,
+     45.65
+    ]
+   ]
+  },
+  {
+   "id": "dd",
+   "n": "Delta Dunării",
+   "scurt": "Delta Dunării",
+   "mare": "DD",
+   "lectie": "dd",
+   "ordine": 2,
+   "seed": [
+    [
+     28.85,
+     45.22
+    ],
+    [
+     29.2,
+     45.42
+    ],
+    [
+     29.7,
+     45.3
+    ],
+    [
+     29.68,
+     45.0
+    ],
+    [
+     29.55,
+     44.82
+    ],
+    [
+     29.0,
+     44.85
+    ],
+    [
+     28.9,
+     45.0
+    ]
+   ]
+  }
+ ],
+ "rauri_taieturi": [
+  {
+   "grup": [
+    "cr-o",
+    "cr-oa",
+    "cr-b",
+    "cr-br",
+    "cr-bs"
+   ],
+   "rauri": [
+    "Olt",
+    "Arge",
+    "Buz"
+   ]
+  },
+  {
+   "grup": [
+    "cv-c",
+    "cv-b"
+   ],
+   "rauri": [
+    "Mures",
+    "Mure"
+   ]
+  }
+ ],
+ "rauri_desen": [
+  "Danube",
+  "Olt",
+  "Mures",
+  "Mure",
+  "Siret",
+  "Prut",
+  "Jiu",
+  "Arge",
+  "Ialomi",
+  "Buz",
+  "Some",
+  "Crisul Alb",
+  "Timi",
+  "Bistri",
+  "Moldova",
+  "Trotu",
+  "Vedea",
+  "Tisa",
+  "Bratul"
+ ]
+}
